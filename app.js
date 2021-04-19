@@ -12,6 +12,7 @@ $(document).ready(function() {
 	// add default user "k" with password k
 	localStorage.setItem('k','k') //ideal for username and passwords
 
+
 	$('#registration_form_label').validate({
 		rules:{
 			registration_username:{
@@ -89,6 +90,7 @@ $(document).ready(function() {
 });
 
 function show_regiester(){
+	$('#login_form_label').hide();
 	$('#registration_form_label').show();
 }
 
@@ -107,6 +109,7 @@ function registration_func (){
 
 	localStorage.setItem(userName,password);
 	alert("you have been registered succesfully")
+	show_login();
 	//go to menu here
 	//menu()
 }
@@ -120,10 +123,16 @@ function login_func(){
 	}
 	else if (localStorage.getItem(userName)===password){
 		alert("You are looged in, moving to game");
-		Start();
 	}
 	}
 
+	function showDialogFunc(){
+		document.getElementById("aboutDialog").showModal();
+	}
+
+	function closeDialogFunc(){
+		document.getElementById("aboutDialog").close();
+	}
 
 function Start() {
 	board = new Array();
