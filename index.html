@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+	</head>
+
+	<body>
+		<div id="score">
+			<label for="lblScore">SCORE:</label>
+			<input id="lblScore" type="text" />
+		</div>
+		<div id="time">
+			<label for="lblTime">TIME:</label>
+			<input id="lblTime" type="text" />
+		</div>
+		<div id="game">
+			<canvas id="canvas" height="600" width="600"></canvas>
+		</div>
+
+		<div id="welcome_menu" class="entry button">
+			<!-- logo here-->
+			<h1>Welcome to our game!</h1>
+			<input type=button  id="show_regiester_a" onclick="show_regiester()" value="Register Here">  <!-- on register open registration windows and formats-->
+			<input type=button  id="show_Login_a" onclick="show_login()" value="Login Here">
+		</div>
+
+		<!-- Registration Form-->
+		<div id="register_container_id" class="registration">
+			<h2> Registration!</h2>
+			<form class="registration_form" id="registration_form_label">
+				<input type="text" name="registration_username" id="r_username_id" placeholder="UserName">
+			</br>
+				<input type="password" name="registration_password" id="r_password_id" placeholder="Password">
+			</br>
+				<input type="text" name="registration_fullname" id="r_fullname_id" placeholder="Full Name">
+			</br>
+				<input type="email" name="registration_email" id="r_email_id" placeholder="Email">
+			</br>
+				<input type="date" name="registration_birthday" id="r_birthday_id" >
+			</br>
+					<!--we dont use onclick here because we use jquery for dynamic event handling-->
+				<input type="submit" id="submit Registration">
+			</form>
+		</div>
+
+		<!--Login Form-->
+		<div id="login-container-id">
+			<h2> Login!</h2>
+			<form  class="login_class_name" id="login_form_label">
+				<input type="text" name="login_username" id="l_username_id" placeholder="UserName">
+			</br>
+				<input type="password" name="login_password" id="l_password_id" placeholder="Password">
+			</br>
+			<input type="submit" id="submit_Login">
+			</form>
+		</div>
+	</body>
+</html>
