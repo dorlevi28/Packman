@@ -1,71 +1,216 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
 
-	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
-		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
-		</div>
-		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
-		</div>
+<head>
+	<link rel="stylesheet" type="text/css" href="./style.css" />
 
-		<div id="welcome_menu" class="entry button">
-			<!-- logo here-->
-			<h1>Welcome to our game!</h1>
-			<input type=button  id="show_regiester_a" onclick="show_regiester()" value="Register Here">  <!-- on register open registration windows and formats-->
-			<input type=button  id="show_Login_a" onclick="show_login()" value="Login Here">
-		</div>
+	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</head>
 
-		<!-- Registration Form-->
-		<div id="register_container_id" class="registration">
-			<h2> Registration!</h2>
-			<form class="registration_form" id="registration_form_label">
-				<input type="text" name="registration_username" id="r_username_id" placeholder="UserName">
-			</br>
-				<input type="password" name="registration_password" id="r_password_id" placeholder="Password">
-			</br>
-				<input type="text" name="registration_fullname" id="r_fullname_id" placeholder="Full Name">
-			</br>
-				<input type="email" name="registration_email" id="r_email_id" placeholder="Email">
-			</br>
-				<input type="date" name="registration_birthday" id="r_birthday_id" >
-			</br>
-					<!--we dont use onclick here because we use jquery for dynamic event handling-->
-				<input type="submit" id="submit Registration">
-			</form>
-		</div>
+<body>
 
-		<!--Login Form-->
-		<div id="login-container-id">
-			<h2> Login!</h2>
-			<form  class="login_class_name" id="login_form_label">
-				<input type="text" name="login_username" id="l_username_id" placeholder="UserName">
+	<!-- MENU -->
+	<div class="topnav">
+		<div class="topnav-left">
+			<a id="menu_welcome" onclick="changeNavBar('welcome_menu')">Welcome</a>
+			<a id="menu_login" onclick="changeNavBar('login-container-id')">Log In</a>
+			<a id="menu_register" onclick="changeNavBar('register_container_id')">Register</a>
+			<a id="menu_about" onclick=showDialogFunc()>About</a>
+		</div>
+	</div>
+
+
+	
+
+	<table id="GameBox">
+		<tr>
+			<th>
+				<div id="settingsDetails">
+					<h3> Your Settings</h3>
+					<p id="sett1" class="settingsDisplay"></p>
+					<p id="sett2" class="settingsDisplay"></p>
+					<p id="sett3" class="settingsDisplay"></p>
+					<p id="sett4" class="settingsDisplay"></p>
+					<p id="sett5" class="settingsDisplay"></p>
+					<p id="sett6" class="settingsDisplay"></p>
+					<p id="sett7" class="settingsDisplay"></p>
+					<p id="sett8" class="settingsDisplay"></p>
+					<p id="sett9" class="settingsDisplay"></p>
+					<p id="sett10" class="settingsDisplay"></p>
+				</div>
+			</th>
+			<th>
+				<div id="game" class="frame">
+					<canvas id="canvas" height="600" width="600"></canvas>
+
+				</div>
+			</th>
+			<!-- </div> -->
+			<th >
+				<div id="labaelContainer">
+					<div>
+						<p id="showUsername" style="font-weight: bold;"> </p>
+					</div>
+					<p>
+					<div id="score" >
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" readonly="readonly" style="background-color: transparent; border: none;"/>
+					</div>
+					</p>
+					<p>
+					<div id="time" >
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" readonly="readonly" style="background-color: transparent; border: none;"/>
+					</div>
+					</p>
+					<p>
+					<div id="lives">
+						<label for="lblLives">LIVES:</label>
+						<input id="lblLives" type="text" readonly="readonly" style="background-color: transparent; border: none;"/>
+					</div>
+					</p>
+					<p>
+					<div style="float: left;">
+						<button onclick="restartGame()"> New Game  </button>
+					</div>
+					</p>
+
+				</div>
+			</th>
+		</tr>
+	</table>
+
+
+	<div id="welcome_menu">
+		<div class="my_welcome">
+			<h1 id="welcome_title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to PacMan</h1>
+			<p> 
+			<img id="welcome_image" src="./images/Pac-Man-0.png">
+		</p>
+			<input type=button id="show_a" onclick="show_regiester()" value="Register Here">
+			<input type=button id="show_a" onclick="show_login()" value="Login Here">
+		</div>
+	</div>
+
+
+	<!-- Registration Form-->
+	<div id="register_container_id" class="registration">
+		<h2> Registration!</h2>
+		<form class="registration_form" id="registration_form_label">
+			<input type="text" name="registration_username" id="r_username_id" placeholder="UserName">
 			</br>
-				<input type="password" name="login_password" id="l_password_id" placeholder="Password">
+			<input type="password" name="registration_password" id="r_password_id" placeholder="Password">
+			</br>
+			<input type="text" name="registration_fullname" id="r_fullname_id" placeholder="Full Name">
+			</br>
+			<input type="email" name="registration_email" id="r_email_id" placeholder="Email">
+			</br>
+			<input type="date" name="registration_birthday" id="r_birthday_id">
+			</br>
+			<!--we dont use onclick here because we use jquery for dynamic event handling-->
+			<input type="submit" id="submit_Registration">
+		</form>
+	</div>
+
+	<!--Login Form-->
+	<div id="login-container-id">
+		<h2 id="l_title"> Login!</h2>
+		<form class="login_class_name" id="login_form_label">
+			<input type="text" name="login_username" id="l_username_id" placeholder="UserName">
+			</br>
+			<input type="password" name="login_password" id="l_password_id" placeholder="Password">
 			</br>
 			<input type="submit" id="submit_Login">
-			</form>
-		</div>
-		<!--About Dialog-->
-		<div id="about"> 
-			<button onclick="showDialogFunc()">Click me for Dialaog model</button>
-		</div>
-		<dialog id="aboutDialog" onclick="closeDialogFunc()">
-			<h3>This game is designed by Dor Levi and Sagiv</h3>
+		</form>
+	</div>
+	<!--About Dialog-->
+	<div id="about">
+	</div>
+	<dialog id="aboutDialog" onclick="closeDialogFunc()">
+		<h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;"> Hi and welcome to Our Packman game! 
+			This game is designed by Sagiv and Dor. It is built with JavaScript,HTML5, jquery and CSS3.
+			Hope you enjoy it ! (:
+		</h3>
+		<br>
+		<button onclick="closeDialogFunc()">Click here to close dialog</button>
+	</dialog>
+
+
+	<audio id="song_id" name="game_song" src="./sound files/pacman_beginning.wav"  type="audio/wav"
+	 preload="auto" loop></audio>
+
+	<div class="content" id="settings">
+		<br>
+		<h1 style="text-align: center;">Settings Page </h1>
+		<h5 style="text-align: center;">Please fill from top to dawn</h5>
+		<div style="text-align: center;" class="settingsWrapper">
+			<form id="form_configuration_id">
+				<span>Up: </span>
+				<input type="text" onkeydown="settingsKey(event,'up')" id="up" name="configuration_set_up_name">
+				<button class="changeKeyBtn" onclick="resetSettingsKey('up')">change</button>
+				<br><br>
+				<span>Down: </span>
+				<input type="text" onkeydown="settingsKey(event,'down')" id="down" name="configuration_set_down_name">
+				<button class="changeKeyBtn" onclick="resetSettingsKey('down')">change</button>
+				<br><br>
+				<span>Left: </span>
+				<input type="text" onkeydown="settingsKey(event,'left')" id="left" name="configuration_set_left_name">
+				<button class="changeKeyBtn" onclick="resetSettingsKey('left')">change</button>
+				<br><br>
+				<span>Right: </span>
+				<input type="text" onkeydown="settingsKey(event,'right')" id="right"
+					name="configuration_set_right_name">
+				<button class="changeKeyBtn" onclick="resetSettingsKey('right')">change</button>
+				<br><br>
+				<label>Number of Balls in The Game: </label>
+				<input type="text" id="chosen_food_amount" value="70" readonly="readonly"
+					style="background: none; border:none;">
+				<br><br>
+				<span>Balls amount (min. 50 max. 90): </span>
+				<input type="range" id="ballsAmount" min="50" value="70" max="90" step="1"
+					onchange="updateFoodValue(this.value)">
+				<br><br>
+				<span>5-Points ball color: </span>
+				<input type="color" value="#61F7B5" id="smallBallColor" onkeypress="return /[a-z]/i.test(event.key)">
+				<br><br>
+				<span>15-Points ball color: </span>
+				<input type="color" value="#7FFF00" id="mediumBallColor" onkeypress="return /[a-z]/i.test(event.key)">
+				<br><br>
+				<span>25-Points ball color: </span>
+				<input type="color" value="#CD853F"  id="bigBallColor" onkeypress="return /[a-z]/i.test(event.key)">
+				<br><br>
+				<label>Game Time: </label>
+				<input type="text" id="chosen_game_time" value="70" readonly="readonly"
+					style="background: none; border:none;">
+				<br><br>
+				<span>Game time in seconds(min. 60): </span>
+				<input type="number" id="gameTime" min="60" value="60" onchange="updateTimeValue(this.value)">
+				<br><br>
+				<span>How many monsters(min. 1 max. 4): </span>
+				<input type="text" id="monstersAmount" name="configuration_monster_amount" onkeypress="return /[0-9]/i.test(event.key)">
+				<br><br>
 			<br>
-			<button onclick="closeDialogFunc()">Click here to close dialog</button>
-		</dialog>
-		
-	</body>
+			<!-- <div  style="text-align: center;"> -->
+			<!-- <input type="submit" value="Start Game" id="star_game_btn"/> -->
+			<!--<button  >Start Game!</button>-->
+			<input type="submit" style="width: 270px;" value="Start Game!" id="gameBtn"/>
+			<!-- </div>-->
+			</form>
+			<button id="randomise" onclick="randomSettings()">Random Settings</button>
+			
+
+		</div>
+	
+
+	  </div>
+
+
+
+	
+
+</body>
+
 </html>

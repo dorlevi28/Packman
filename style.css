@@ -1,0 +1,210 @@
+body {
+  background-color: beige;
+}
+
+#labaelContainer {
+  background-color: rgb(126, 146, 202);
+  width: 150px;
+  height: 600px;
+  text-align: left;
+  /* display: none; */
+}
+
+#score {
+  /* display: none; */
+  background-color: transparent;
+}
+
+#time {
+  /* display: none; */
+}
+
+#settingsDetails {
+  /* float: left;
+	background-color: #9995ea;
+	margin-left:15%;
+	margin-top: 5%; */
+  /* display: none; */
+  text-align: left;
+  background-color: cornflowerblue;
+  height: 600px;
+}
+
+#game {
+  /* display: none; */
+}
+
+#register_container_id {
+  display: none;
+  margin-left: 30%;
+  margin-top: 5%;
+  height: 450px;
+  width: 400px;
+  background-color: rgb(191, 221, 221);
+  text-align: center;
+  padding: 5px;
+}
+
+#login-container-id {
+  display: none;
+  margin-left: 30%;
+  margin-top: 5%;
+  height: 300px;
+  width: 400px;
+  background-color: rgb(191, 221, 221);
+  text-align: center;
+  padding: 5px;
+}
+#l_title {
+  /* margin-top: 50px; */
+}
+
+#r_username_id {
+  padding: 10px;
+  margin: 10px;
+}
+#r_password_id {
+  padding: 10px;
+  margin: 10px;
+}
+#r_fullname_id {
+  padding: 10px;
+  margin: 10px;
+}
+#r_email_id {
+  padding: 10px;
+  margin: 10px;
+}
+#r_birthday_id {
+	padding: 10px;
+	margin: 10px;
+  }
+  #submit_Registration {
+	padding: 10px;
+	margin: 10px;
+  }
+#l_username_id {
+  padding: 10px;
+  margin: 10px;
+}
+
+#l_password_id {
+  padding: 10px;
+  margin: 10px;
+}
+
+#submit_Login {
+  padding: 10px;
+  margin: 10px;
+}
+
+#settings {
+  display: none;
+}
+
+#about {
+  display: none;
+}
+
+.topnav {
+  /* border-radius: 30px; */
+  /* border: 10px solid black; */
+  background-color: #a0ee73;
+  overflow: hidden;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  /* text-align: center; */
+  padding: 14px 16px;
+  /* text-decoration: none; */
+  font-size: 18px;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(105, 180, 134);
+}
+
+#GameBox {
+  display: none;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.frame {
+  background-color: black;
+  width: 600px;
+  height: 600px;
+  margin-top: 20px;
+  /* margin-left: 30%;
+	margin-top: 5%; */
+
+  /* margin-left: 30%;
+	margin-top: 5%;
+	width: auto;
+	height: auto; */
+  /* width: auto;
+	height: auto;
+	background: #db6767;
+	color: #000;
+	top: 20%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	padding: 70px 30px;
+    border-radius: 10px; */
+}
+
+#welcome_image {
+  width: 100px;
+  height: 100px;
+  
+  margin-top: 30px;
+  margin-left: 5%;
+  
+}
+
+#welcome_menu {
+  margin-left: 30%;
+  margin-top: 5%;
+  /* height: 500px; */
+  height: 300px;
+  width: 400px;
+  background-color: rgb(191, 221, 221);
+  text-align: center;
+  padding: 5px;
+  /* margin-bottom: 50%; */
+  /* background-image: url('/images/Pac-Man-0.png'); */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  /* background-size: contain; */
+  /* font-family: sans-serif; */
+}
+
+#welcome_title {
+  /* padding-bottom: 50px; */
+}
+
+#show_a {
+  /* font-size: 30px; */
+  /* width: 47%; */
+  /* height: 60px; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* font-family: sans-serif; */
+  /* margin-bottom: 100px; */
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* margin-right: 10px; */
+  margin-left: 30px;
+  padding: 10px 10px 10px 10px;
+}
